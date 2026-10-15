@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="id"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dashboard Master Schedule – Forehearth DJ2 Upgrade</title>
+<meta name="description" content="Dashboard Master Schedule Forehearth DJ2 Upgrade – PT. Kangar Consolidated Industries (SO 8126045): Gantt, Kurva-S, monitor PIC, alarm keterlambatan.">
+<meta property="og:title" content="Master Schedule – Forehearth DJ2 Upgrade">
+<meta property="og:description" content="Gantt, Kurva-S, progres per fase &amp; PIC, alarm keterlambatan.">
+<meta name="theme-color" content="#0f141b">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%8A%3C/text%3E%3C/svg%3E">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#f5f6f8;--card:#fff;--tx:#1b2330;--mu:#667085;--bd:#e3e6ec;--a:#2563eb;--b:#d97706;--c:#059669;--sd:#dc2626;--ln:#eceff4}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f141b;--card:#171e28;--tx:#e8ecf2;--mu:#98a2b3;--bd:#273140;--a:#60a5fa;--b:#fbbf24;--c:#34d399;--sd:#f87171;--ln:#222c3a}}
+:root[data-theme="dark"]{--bg:#0f141b;--card:#171e28;--tx:#e8ecf2;--mu:#98a2b3;--bd:#273140;--a:#60a5fa;--b:#fbbf24;--c:#34d399;--sd:#f87171;--ln:#222c3a}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:14px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.w{max-width:1280px;margin:0 auto;padding:16px}
+h1{font-size:20px;margin:0}h2{font-size:15px;margin:0 0 10px}.sub{color:var(--mu);font-size:12.5px;margin-top:4px}
+.g{display:grid;gap:12px}.k{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}.p3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.c{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:12px 14px}
+.kv{font-size:24px;font-weight:700}.kl{color:var(--mu);font-size:12px}
+.sec{margin-top:16px}.bar{height:8px;background:var(--ln);border-radius:6px;overflow:hidden;margin-top:6px}.bar i{display:block;height:100%}
+.top{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:flex-end}
+.f{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 10px}
+input,select{background:var(--card);color:var(--tx);border:1px solid var(--bd);border-radius:7px;padding:6px 8px;font:inherit}
+.sc{overflow-x:auto}
+.gh,.gr{display:grid;grid-template-columns:250px 1fr;min-width:1050px}
+.gh{position:sticky;top:0;font-size:11px;color:var(--mu);border-bottom:1px solid var(--bd)}
+.gr{border-bottom:1px solid var(--ln);height:24px;align-items:center;font-size:12px}
+.gl{padding:0 6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.gt{position:relative;height:100%}.gb{position:absolute;top:5px;height:14px;border-radius:4px;color:#fff;font-size:10px;line-height:14px;padding-left:3px;overflow:hidden;white-space:nowrap;min-width:3px}
+.L0 .gl{font-weight:700}.L1 .gl{padding-left:16px;font-weight:600}.L2 .gl{padding-left:30px}
+.gm{position:absolute;top:0;bottom:0;border-left:1px solid var(--ln)}.mh{position:absolute;font-size:11px;padding-left:3px}
+.today{position:absolute;top:0;bottom:0;border-left:2px dashed var(--sd);z-index:2}
+.gbody{position:relative}.ov{position:absolute;left:250px;right:0;top:0;bottom:0;pointer-events:none}
+table{border-collapse:collapse;width:100%;font-size:12.5px;min-width:760px}th,td{text-align:left;padding:5px 8px;border-bottom:1px solid var(--ln)}th{color:var(--mu);font-weight:600;position:sticky;top:0;background:var(--card)}
+.tg{display:inline-block;padding:1px 8px;border-radius:10px;font-size:11px;font-weight:600;border:1px solid currentColor}
+.done{color:var(--c)}.run{color:var(--a)}.ns{color:var(--mu)}
+.note li{margin:4px 0}.note{padding-left:18px;margin:0;font-size:13px}
+.lg{display:flex;gap:12px;flex-wrap:wrap;font-size:12px;color:var(--mu);margin-bottom:8px}.lg b{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:4px}
+@keyframes grow{from{transform:scaleX(0);opacity:0}}@keyframes sl2{to{transform:translateX(17px)}}@keyframes fill{from{transform:scaleX(0)}}@keyframes draw{to{stroke-dashoffset:0}}@keyframes fade{from{opacity:0}}@keyframes dn{from{stroke-dasharray:0 252}}@keyframes pul{0%{r:4;opacity:.9}100%{r:15;opacity:0}}@keyframes bl{50%{opacity:.3}}@keyframes rise{from{transform:scaleY(0)}}
+.rv{opacity:0;transform:translateY(14px);transition:opacity .7s,transform .7s}.rv.in{opacity:1;transform:none}
+.g>.c{transition:transform .2s,box-shadow .2s}.g>.c:hover{transform:translateY(-3px);box-shadow:0 8px 18px rgba(0,0,0,.14)}
+.anim .gb{transform-origin:left;animation:grow .7s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i,0)*20ms)}
+.gb.s-run::after{content:"";position:absolute;left:-17px;right:0;top:0;bottom:0;background:repeating-linear-gradient(45deg,rgba(255,255,255,.3) 0 6px,transparent 6px 12px);animation:sl2 .8s linear infinite}
+.bar i{transform-origin:left;animation:fill 1.1s cubic-bezier(.2,.8,.2,1) both}.today{animation:bl 1.6s infinite}
+.vz{display:grid;gap:12px;grid-template-columns:minmax(0,2.3fr) minmax(230px,1fr)}@media(max-width:760px){.vz{grid-template-columns:1fr}}
+.sl{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 2s ease forwards}.ar{animation:fade 2s ease both}.dn{animation:dn 1.4s ease both}.mb{transform-box:fill-box;transform-origin:bottom;animation:rise .9s ease both}.pu{animation:pul 1.6s ease-out infinite}
+svg text{fill:var(--mu);font-size:9px}.dl{display:flex;align-items:center;gap:6px;font-size:12.5px;margin:4px 0}.dl b{width:10px;height:10px;border-radius:3px}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.sl{stroke-dashoffset:0}}
+button{background:var(--card);color:var(--tx);border:1px solid var(--bd);border-radius:7px;padding:6px 12px;font:inherit;cursor:pointer;transition:border-color .2s,transform .15s}button:hover{border-color:var(--a)}button:active{transform:scale(.96)}
+@keyframes march{to{stroke-dashoffset:-18}}@keyframes br{50%{opacity:.5}}
+.fut{animation:march 1s linear infinite}.dc{transition:stroke-dasharray .8s cubic-bezier(.3,.8,.3,1),stroke-dashoffset .8s cubic-bezier(.3,.8,.3,1),stroke-width .25s;cursor:pointer}.dc:hover{stroke-width:18}#dc_run{animation:br 2s ease-in-out infinite}.mb{transition:fill-opacity .4s}.dl strong{font-weight:700}
+.pl .dc{transition:stroke-dasharray .12s linear,stroke-dashoffset .12s linear}.pl .bar i,.pl .gb{animation:none}
+body{background:radial-gradient(1100px 420px at 8% -8%,rgba(99,102,241,.22),transparent),radial-gradient(900px 420px at 100% 0,rgba(6,182,212,.18),transparent),radial-gradient(800px 500px at 50% 110%,rgba(236,72,153,.12),transparent),var(--bg);background-attachment:fixed}
+h1{font-size:25px;background:linear-gradient(90deg,#6366f1,#06b6d4,#10b981,#f59e0b);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:hue 6s ease-in-out infinite alternate}@keyframes hue{to{background-position:100% 0}}
+.c h2{position:relative;padding-left:11px}.c h2::before{content:"";position:absolute;left:0;top:2px;bottom:2px;width:4px;border-radius:3px;background:linear-gradient(#6366f1,#06b6d4,#10b981)}
+#kpi{grid-template-columns:repeat(auto-fit,minmax(128px,1fr))}
+.kc{position:relative;overflow:hidden;border:none;color:#fff;padding-top:30px;background:linear-gradient(135deg,var(--kc),color-mix(in srgb,var(--kc) 55%,#000));box-shadow:0 8px 18px color-mix(in srgb,var(--kc) 38%,transparent)}
+.kc .kv{color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.25)}.kc .kl{color:rgba(255,255,255,.88)}
+.ki{position:absolute;right:9px;top:6px;font-size:22px;animation:fl 3s ease-in-out infinite}@keyframes fl{50%{transform:translateY(-4px) rotate(8deg)}}
+.kc::after{content:"";position:absolute;top:0;bottom:0;left:0;width:40%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.25),transparent);animation:shn 4.5s ease-in-out infinite;pointer-events:none}@keyframes shn{from{transform:translateX(-130%)}to{transform:translateX(280%)}}
+.kb{height:5px;background:rgba(255,255,255,.28);border-radius:4px;margin-top:9px;overflow:hidden}.kb i{display:block;height:100%;background:#fff;border-radius:4px;transform-origin:left;animation:fill 1.3s cubic-bezier(.2,.8,.2,1) both}
+.pl .kb i,.pl .ki{animation:none}
+.gb{background-image:linear-gradient(180deg,rgba(255,255,255,.3),transparent 70%);box-shadow:0 1px 4px rgba(0,0,0,.3)}
+#pic>div:nth-child(1) .bar i{background:linear-gradient(90deg,#6366f1,#8b5cf6)!important}#pic>div:nth-child(2) .bar i{background:linear-gradient(90deg,#06b6d4,#3b82f6)!important}#pic>div:nth-child(3) .bar i{background:linear-gradient(90deg,#f59e0b,#ef4444)!important}#pic>div:nth-child(4) .bar i{background:linear-gradient(90deg,#ec4899,#f43f5e)!important}
+.tg.done{background:color-mix(in srgb,var(--c) 16%,transparent)}.tg.run{background:color-mix(in srgb,var(--a) 16%,transparent)}
+tbody tr{transition:background .2s}tbody tr:hover{background:color-mix(in srgb,var(--a) 10%,transparent)}
+
+.vz{grid-template-columns:1fr}
+.alm{display:flex;align-items:center;gap:12px;margin:12px 0 0;padding:12px 16px;border-radius:12px;color:#fff;background:linear-gradient(90deg,#b91c1c,#ef4444,#b91c1c);background-size:200% 100%;animation:alb 2s linear infinite,glow 1s ease-in-out infinite}.alm[hidden]{display:none}
+.alm>div{flex:1}.alm button{background:rgba(255,255,255,.18);color:#fff;border-color:rgba(255,255,255,.45)}
+.sir{font-size:28px;animation:sir .6s ease-in-out infinite alternate}
+@keyframes alb{to{background-position:-200% 0}}@keyframes glow{50%{box-shadow:0 0 28px 6px rgba(239,68,68,.65)}}@keyframes sir{to{transform:scale(1.25) rotate(-12deg)}}
+body.alarm::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:50;box-shadow:inset 0 0 90px rgba(239,68,68,.55);animation:vg 1.2s ease-in-out infinite}@keyframes vg{50%{opacity:.2}}
+.gb.s-late{background:linear-gradient(180deg,#f87171,#dc2626)!important;animation:alm2 1s ease-in-out infinite!important;box-shadow:0 0 10px #ef4444}@keyframes alm2{50%{box-shadow:0 0 2px #ef4444;filter:brightness(1.4)}}
+.gr.lt{background:rgba(239,68,68,.1)}.gr.lt .gl{color:var(--sd);font-weight:700}.gl{cursor:pointer}
+tr.lt{background:rgba(239,68,68,.12)}.tg.late{color:#ef4444;background:rgba(239,68,68,.16);animation:bl 1s infinite}.tg.run{color:#fbbf24;background:rgba(251,191,36,.15)}
+.kc.al{animation:glow 1s infinite}
+#dsv{width:min(300px,100%);touch-action:none;cursor:grab;filter:drop-shadow(0 0 14px rgba(16,185,129,.35));transition:filter .4s}#dsv:active{cursor:grabbing}body.alarm #dsv{filter:drop-shadow(0 0 18px rgba(239,68,68,.8))}
+.dw{display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:center}.dtx{flex:1;min-width:200px;line-height:1.9;font-size:13.5px}
+.od{transform-origin:150px 150px;animation:rot 90s linear infinite}@keyframes rot{to{transform:rotate(360deg)}}
+.dc:hover{stroke-width:23}.dt{transform-box:fill-box;transform-origin:center;animation:pop .6s cubic-bezier(.3,1.6,.5,1) both;animation-delay:var(--d,0ms)}
+.dt.s-done{fill:#10b981}.dt.s-run{fill:#fbbf24;animation:tpu 1.3s ease-in-out infinite}.dt.s-late{fill:#ef4444;animation:tbk .5s ease-in-out infinite;filter:drop-shadow(0 0 4px #ef4444)}.dt.s-ns{fill:#6b7280;opacity:.7}
+@keyframes pop{from{transform:scale(0)}}@keyframes tpu{50%{transform:scale(1.6)}}@keyframes tbk{50%{transform:scale(1.9);opacity:.5}}
+.br{position:absolute;left:0;right:0;height:32px;display:grid;grid-template-columns:132px 1fr 86px;gap:10px;align-items:center;transition:transform .7s cubic-bezier(.3,.8,.3,1)}
+.bl{font-size:12.5px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.bt{position:relative;height:18px;background:var(--ln);border-radius:9px;overflow:hidden}
+.bp{position:absolute;left:0;top:0;height:100%;background:rgba(148,163,184,.3);transition:width .45s linear}
+.ba{position:absolute;left:0;top:0;height:100%;border-radius:9px;transition:width .45s linear;overflow:hidden;box-shadow:0 0 10px rgba(99,102,241,.5)}
+.ba::after{content:"";position:absolute;top:0;bottom:0;left:0;width:40%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.5),transparent);animation:shn 2.4s ease-in-out infinite}
+.br.lt .ba{background:linear-gradient(90deg,#b91c1c,#ef4444)!important;box-shadow:0 0 12px #ef4444}.br.lt .bv{color:var(--sd)}.bv{font-weight:700;font-size:12.5px;text-align:right}.bv small{font-size:10px}
+@media(prefers-reduced-motion:reduce){.gb.s-late,.alm,.sir,body.alarm::before,.dt,.od{animation:none!important}}
+
+body{background:radial-gradient(1100px 420px at 8% -8%,color-mix(in srgb,var(--p1) 24%,transparent),transparent),radial-gradient(900px 420px at 100% 0,color-mix(in srgb,var(--p2) 20%,transparent),transparent),radial-gradient(800px 500px at 50% 110%,color-mix(in srgb,var(--p3) 14%,transparent),transparent),var(--bg);background-attachment:fixed}
+h1{background-image:linear-gradient(90deg,var(--p1),var(--p2),var(--p3),var(--p1))}.c h2::before{background:linear-gradient(var(--p1),var(--p2),var(--p3))}
+:root{--p1:#6366f1;--p2:#06b6d4;--p3:#10b981;--k0:#6366f1;--k1:#0ea5e9;--k2:#10b981;--k3:#f59e0b;--k4:#ef4444;--k5:#64748b;--k6:#ec4899;--k7:#8b5cf6}
+.thp{position:absolute;right:0;top:44px;z-index:70;width:300px;background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px;box-shadow:0 14px 40px rgba(0,0,0,.4)}.thp[hidden]{display:none}
+.sw{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.sb{height:42px;border-radius:9px;border:2px solid transparent;color:#fff;font-weight:700;font-size:12px;text-shadow:0 1px 3px rgba(0,0,0,.7);cursor:pointer}.sb.on{border-color:var(--tx);box-shadow:0 0 12px var(--p1)}
+.cr{display:flex;gap:10px}.cr label{font-size:11px;color:var(--mu);display:flex;flex-direction:column;gap:3px}.cr input{padding:0;height:30px;width:70px}
+.wrn{display:flex;align-items:center;gap:12px;margin:10px 0 0;padding:11px 16px;border-radius:12px;color:#1c1100;background:linear-gradient(90deg,#f59e0b,#fbbf24,#f59e0b);background-size:200% 100%;animation:alb 2.5s linear infinite,glow2 1.6s ease-in-out infinite}.wrn[hidden]{display:none}.wrn>div{flex:1}.sir2{font-size:24px;animation:sir .8s ease-in-out infinite alternate}
+@keyframes glow2{50%{box-shadow:0 0 20px 3px rgba(245,158,11,.6)}}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}.chip{display:flex;align-items:center;gap:8px;padding:8px 16px;border-radius:999px;font-weight:600}
+.chip:hover{transform:translateY(-2px)}.chip.on{background:linear-gradient(135deg,var(--p1),var(--p2));color:#fff;border-color:transparent;box-shadow:0 6px 18px color-mix(in srgb,var(--p1) 45%,transparent)}
+.dot{width:11px;height:11px;border-radius:50%;background:#10b981;box-shadow:0 0 8px #10b981}.dot.warn{background:#f59e0b;box-shadow:0 0 10px #f59e0b;animation:bl 1.2s infinite}.dot.bad{background:#ef4444;box-shadow:0 0 12px #ef4444;animation:bl .5s infinite}
+.pg{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(270px,1fr))}.pgh{font-weight:700;font-size:12.5px;margin:10px 0 5px}
+.pbd{display:inline-block;padding:6px 14px;border-radius:999px;font-weight:800;font-size:12.5px;color:#fff}.pbd.ok{background:linear-gradient(90deg,#059669,#10b981)}.pbd.warn{background:linear-gradient(90deg,#d97706,#f59e0b);animation:glow2 1.4s infinite}.pbd.bad{background:linear-gradient(90deg,#b91c1c,#ef4444);animation:glow 1s infinite}
+#ga{transition:stroke-dasharray .5s ease}#gpl{transition:stroke-dasharray .5s ease}#ndl{transform-origin:110px 110px;transition:transform .5s cubic-bezier(.3,1.4,.5,1)}.pbad #gsv{filter:drop-shadow(0 0 10px #ef4444)}.pwarn #gsv{filter:drop-shadow(0 0 8px #f59e0b)}.pok #gsv{filter:drop-shadow(0 0 8px #10b981)}
+#spsv.bad #sp_a{stroke:#ef4444}#spsv.bad #sp_d{stroke:#ef4444}
+.tk{margin:7px 0;font-size:12.5px}.tn{display:flex;justify-content:space-between;gap:8px}.tn span:first-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.tn span:last-child{white-space:nowrap;color:var(--mu)}
+.tb2{height:7px;background:var(--ln);border-radius:4px;overflow:hidden;margin-top:3px}.tb2 i{display:block;height:100%;border-radius:4px;background:linear-gradient(90deg,var(--p1),var(--p2));transition:width .4s linear}
+.tk.y .tb2 i{background:linear-gradient(90deg,#f59e0b,#fbbf24);animation:bl 1s infinite}.tk.r .tb2 i{background:linear-gradient(90deg,#b91c1c,#ef4444);animation:bl .6s infinite}.tk.r .tn span{color:#ef4444;font-weight:700}
+.tip{margin-top:8px;padding:8px 10px;border-radius:9px;font-size:12.5px;line-height:1.6}.tip.bad{background:rgba(239,68,68,.14);border:1px solid #ef4444}.tip.warn{background:rgba(245,158,11,.14);border:1px solid #f59e0b}.tip.ok{background:rgba(16,185,129,.12);border:1px solid #10b981}
+.bar{height:10px}.bar i{position:relative;background-image:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,.28))}
+.bar i::after,.kb i::after{content:"";position:absolute;top:0;bottom:0;left:0;width:35%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.65),transparent);animation:shn 2.2s ease-in-out infinite}
+.bar i::before{content:"";position:absolute;right:0;top:0;bottom:0;width:5px;background:#fff;box-shadow:0 0 8px 2px #fff;opacity:.9;animation:bl 1.2s infinite}.kb i{position:relative;overflow:hidden}
+.ba::before{content:"";position:absolute;right:0;top:0;bottom:0;width:7px;background:rgba(255,255,255,.9);filter:blur(1.5px);animation:bl 1s infinite;z-index:2}
+.mb.cur{filter:drop-shadow(0 0 7px var(--p1));animation:mbp 1.1s ease-in-out infinite alternate}@keyframes mbp{to{transform:scaleY(1.07)}}
+.gf{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,rgba(255,255,255,.1),rgba(255,255,255,.45));border-radius:4px 0 0 4px}.gf::after{content:"";position:absolute;right:0;top:0;bottom:0;width:3px;background:#fff;box-shadow:0 0 6px #fff}
+.gb:hover{filter:brightness(1.25);z-index:3}.gb.due{box-shadow:0 0 9px #f59e0b!important;animation:duep 1.2s ease-in-out infinite!important}@keyframes duep{50%{filter:brightness(1.35)}}
+@media(prefers-reduced-motion:reduce){.wrn,.sir2,.gb.due,.mb.cur,.dot{animation:none!important}}
+
+#dsv{width:min(390px,100%)}.od{transform-origin:170px 170px}.rdr,.cmt{transform-origin:170px 170px}.rdr{animation:rot 6s linear infinite}.cmt{animation:rot 7.5s linear infinite reverse}
+.gw{transform-origin:170px 170px;animation:gwp 3.2s ease-in-out infinite}.gw.gr{opacity:0;transition:opacity .5s}.al .gw.gr{opacity:1;animation:gwr .8s ease-in-out infinite}.al .gw:not(.gr){opacity:0}
+@keyframes gwp{50%{transform:scale(1.07);opacity:.7}}@keyframes gwr{50%{transform:scale(1.1);opacity:.5}}
+.beat{transform-origin:170px 170px;animation:beat 2.6s ease-in-out infinite}@keyframes beat{50%{transform:scale(1.035)}}
+.sp{transform-box:fill-box;transform-origin:center;animation:tw 2.4s ease-in-out infinite}@keyframes tw{0%,100%{opacity:.08;transform:scale(.4)}50%{opacity:1;transform:scale(2)}}
+.pa{transition:stroke-dasharray 1.1s cubic-bezier(.3,1,.4,1);filter:drop-shadow(0 0 4px currentColor)}.pt{transform-origin:170px 170px;transition:transform 1.1s cubic-bezier(.3,1,.4,1)}.hk{cursor:pointer}
+.pl .pa,.pl .pt{transition:stroke-dasharray .15s linear,transform .15s linear}
+.dc:hover{stroke-width:21}.dt.s-done,.dt.s-ns{animation:pop .6s cubic-bezier(.3,1.6,.5,1) var(--d,0ms) both,wave 5s ease-in-out calc(var(--d,0ms)*3 + 900ms) infinite}@keyframes wave{50%{transform:scale(1.8)}}
+#dc_late{animation:lflash .7s ease-in-out infinite}@keyframes lflash{50%{opacity:.5}}
+.ph{display:flex;align-items:center;gap:8px;font-size:12.5px;line-height:1.8}.ph i{width:10px;height:10px;border-radius:50%}.ph b{margin-left:auto}.ph small{color:var(--mu)}
+@media(prefers-reduced-motion:reduce){.rdr,.cmt,.gw,.beat,.sp,.dt{animation:none!important}}
+#dsv{width:min(340px,100%)}
+.gw.gr{opacity:0;animation:none}.al .gw.gr{animation:gwr .9s ease-in-out infinite}.al .gw:not(.gr){opacity:0;animation:none}
+@keyframes gwr{0%,100%{opacity:.95;transform:scale(1)}50%{opacity:.35;transform:scale(1.1)}}
+</style></head><body>
+<noscript><p style="padding:20px;font-family:sans-serif">Dashboard ini membutuhkan JavaScript.</p></noscript><div class="w">
+<div class="top"><div><h1>Master Schedule – Forehearth DJ2 Upgrade</h1>
+<div class="sub">Customer: PT. Kangar Consolidated Industries · SO No 8126045 · Originator: Mr. Saeful · Rev 23/09/26 · Cakung, Jakarta Timur</div></div>
+<div style="display:flex;gap:8px;align-items:flex-end;position:relative"><button id="thb">🎨 Tema</button><div id="thp" class="thp" hidden></div><label class="kl">Tanggal acuan status <input type="date" id="ref" value="2026-10-15"></label></div></div>
+
+<div class="alm" id="alm" hidden></div><div class="wrn" id="wrn" hidden></div>
+<div class="g k sec" id="kpi"></div>
+<div class="vz sec"><div class="c"><h2>Kurva-S Rencana (kumulatif %)</h2><div class="kl" id="sh"></div><div class="f" style="margin:8px 0 2px"><button id="pl">▶ Putar timeline</button><button id="rs">Hari ini</button><select id="spd"><option value="0.25">🐢 Slow-mo 0.25×</option><option value="0.5" selected>Lambat 0.5×</option><option value="1">Normal 1×</option><option value="2">Cepat 2×</option></select><button id="tst">🧪 Uji alarm</button><input type="range" id="sd" min="0" max="275" value="136" style="flex:1;min-width:140px;accent-color:var(--a)"></div><div id="sc2"></div><div class="kl">Kurva rencana dihitung dari task paling rinci, berbobot durasi. File Excel tidak memuat progres aktual: centang 🚩 Terlambat di tabel (atau klik nama task di Gantt) untuk menandai task tertunda. Task itu dianggap belum menyumbang progres, lalu kurva merah (aktual) dan alarm muncul.</div></div></div><div class="g sec" style="grid-template-columns:repeat(auto-fit,minmax(340px,1fr))"><div class="c"><h2>Progres Keseluruhan</h2><div id="dn"></div></div><div class="c"><h2>Bar Chart Berjalan · Fase &amp; PIC</h2><div id="bc"></div></div></div>
+
+<div class="sec"><h2>Ringkasan per Fase</h2><div class="g p3" id="ph"></div></div>
+
+<div class="sec c"><h2>Monitor PIC · pilih PIC untuk cek progres &amp; peringatan</h2><div id="pic"></div></div>
+<div class="sec c"><h2>Gantt Chart – seluruh jadwal</h2>
+<div class="lg"><span><b style="background:var(--a)"></b>A Persiapan</span><span><b style="background:var(--b)"></b>B Upgrade</span><span><b style="background:var(--c)"></b>C Commissioning</span><span><b style="background:var(--sd)"></b>Shutdown</span><span style="color:var(--sd)">┆ garis putus = tanggal acuan</span><span style="color:var(--sd)">■ Terlambat (klik nama task untuk menandai)</span></div>
+<div class="f"><input id="q" placeholder="Cari task / No."><select id="fp"></select><select id="fs"><option value="">Semua status</option><option value="done">Selesai</option><option value="run">Berjalan</option><option value="late">Terlambat</option><option value="ns">Belum mulai</option></select><span class="kl" id="cnt"></span></div>
+<div class="sc"><div class="gh"><div class="gl" style="padding:6px">No. · Task</div><div class="gt" id="mh" style="height:24px"></div></div><div class="gbody" id="gb"></div></div></div>
+
+<div class="sec c"><h2>Tabel Jadwal Lengkap</h2><div class="sc" style="max-height:520px;overflow:auto"><table><thead><tr><th>No.</th><th>Task</th><th>By</th><th>Start</th><th>End</th><th>Dur. (hari)</th><th>Status</th><th>% waktu</th><th>🚩 Terlambat</th></tr></thead><tbody id="tb"></tbody></table></div>
+<div class="kl" style="margin-top:6px">Status dihitung dari tanggal jadwal terhadap tanggal acuan (bukan progres aktual lapangan; file tidak memuat kolom progres).</div></div>
+
+
+
+<div class="sec c"><h2>Sheet Milestone (17 item)</h2><div class="sc"><table><thead><tr><th>No</th><th>Milestone</th><th>Start</th><th>End</th><th>Hari</th><th>Remarks</th></tr></thead><tbody id="mt"></tbody></table></div></div>
+
+<div class="sec c"><h2>Hasil Pengecekan Data</h2><ul class="note" id="chk"></ul><div class="kl" style="margin:14px 0 6px"><b>Perbandingan Milestone vs Schedule</b> · Δ = Schedule − Milestone; Δ durasi % = (durasi Schedule − durasi Milestone) / durasi Milestone. Padanan dipetakan dari nama dan remarks (mis. #11 ke B.6, #14 ke awal C.4).</div><div class="sc"><table id="cmp"></table></div></div>
+</div>
+<script>
+const ROWS=[{"id":"A","n":"PROJECT PREPARATION","by":"PAC","s":"2026-06-01","e":"2026-12-07","d":190},{"id":"A.1","n":"Procurement & Material Readiness","by":"PAC","s":"2026-06-01","e":"2026-09-18","d":110},{"id":"A.1.1","n":"Material Procurement","by":"PAC","s":"2026-06-01","e":"2026-09-25","d":117},{"id":"A.1.2","n":"Component Delivery & Inspection","by":"PAC","s":"2026-08-03","e":"2026-09-15","d":44},{"id":"A.1.3","n":"Material Readiness Check","by":"PAC","s":"2026-09-17","e":"2026-09-18","d":2},{"id":"A.2","n":"Panel Fabrication & Assembly","by":"PAC WS","s":"2026-09-01","e":"2026-09-25","d":25},{"id":"A.2.1","n":"Panel Mechanical Fabrication","by":"PAC WS","s":"2026-09-01","e":"2026-09-08","d":8},{"id":"A.2.2","n":"Component Installation","by":"PAC WS","s":"2026-09-07","e":"2026-09-15","d":9},{"id":"A.2.3","n":"Internal Wiring & Termination","by":"PAC WS","s":"2026-09-10","e":"2026-09-25","d":16},{"id":"A.2.4","n":"Panel Inspection / Internal Testing","by":"PAC WS","s":"2026-09-22","e":"2026-09-25","d":4},{"id":"A.3","n":"Engineering & Program Development","by":"PAC","s":"2026-06-02","e":"2026-10-15","d":136},{"id":"A.3.1","n":"PLC-5 Program Review & Backup – Forehearth","by":"PAC","s":"2026-06-02","e":"2026-09-15","d":106},{"id":"A.3.2","n":"PLC-5 to ControlLogix Conversion / Development – Forehearth","by":"PAC","s":"2026-06-02","e":"2026-09-15","d":106},{"id":"A.3.3","n":"I/O & Control System Verification – Forehearth","by":"PAC","s":"2026-06-02","e":"2026-09-15","d":106},{"id":"A.3.4","n":"Citect Alarm System Check & Verification","by":"PAC","s":"2026-09-15","e":"2026-10-15","d":31},{"id":"A.3.5","n":"Add New Alarm Point to Citect SCADA","by":"PAC","s":"2026-09-15","e":"2026-10-15","d":31},{"id":"A.3.6","n":"Citect PID / MCF21, MCF22, MCF24 Screen Development – Forehearth","by":"PAC","s":"2026-09-15","e":"2026-10-15","d":31},{"id":"A.4","n":"FAT – PAC Workshop (Internal)","by":"PAC","s":"2026-09-26","e":"2026-09-28","d":3},{"id":"A.4.1","n":"Panel Inspection","by":"PAC","s":"2026-09-26","e":"2026-09-26","d":1},{"id":"A.4.3","n":"I/O Simulation & Functional Test – Forehearth","by":"PAC","s":"2026-09-26","e":"2026-09-27","d":2},{"id":"A.4.4","n":"PLC / HMI / Citect Verification","by":"PAC","s":"2026-09-26","e":"2026-09-27","d":2},{"id":"A.4.5","n":"Internal FAT Completion / Sign-Off","by":"PAC","s":"2026-09-28","e":"2026-09-28","d":1},{"id":"A.5","n":"Shipment & Site Preparation","by":"PAC + KCI","s":"2026-09-28","e":"2026-12-07","d":71},{"id":"A.5.1","n":"Shipment Panel to KCI","by":"PAC","s":"2026-09-28","e":"2026-09-28","d":1},{"id":"A.5.2","n":"Site Preparation & Safety Coordination","by":"PAC + KCI","s":"2026-10-03","e":"2026-12-07","d":66},{"id":"A.5.3","n":"Test / Data Synchronization","by":"PAC","s":"2026-11-23","e":"2026-11-27","d":5},{"id":"A.5.4","n":"SCADA Citect Install & Screen/Alarm Verification","by":"PAC","s":"2026-11-30","e":"2026-12-04","d":5},{"id":"A.5.5","n":"Device Cable Marking at Existing Panel","by":"PAC + KCI","s":"2026-11-30","e":"2026-12-04","d":5},{"id":"A.5.6","n":"Preparation for Installation / New Panel Preparation to Site","by":"PAC + KCI","s":"2026-11-30","e":"2026-12-07","d":8},{"id":"B","n":"FOREHEARTH DJ2 UPGRADE","by":"PAC + KCI","s":"2026-12-08","e":"2027-01-25","d":49},{"id":"SD","n":"Shutdown (Shutdown pabrik)","by":"KCI","s":"2026-12-08","e":"2026-12-14","d":7},{"id":"B.1","n":"Forehearth Application Program & Sequence Development","by":"PAC","s":"2026-12-16","e":"2026-12-29","d":14},{"id":"B.2","n":"MCF21 Integration Development","by":"PAC","s":"2026-12-26","e":"2026-12-29","d":4},{"id":"B.3","n":"MCF22 Integration Development","by":"PAC","s":"2026-12-26","e":"2026-12-29","d":4},{"id":"B.4","n":"MCF24 Integration Development","by":"PAC","s":"2026-12-26","e":"2026-12-29","d":4},{"id":"B.5","n":"Forehearth Panel / I/O Installation","by":"PAC + KCI","s":"2026-12-15","e":"2027-01-03","d":20},{"id":"B.5.1","n":"Existing Forehearth Panel Dismantling","by":"PAC + KCI","s":"2026-12-15","e":"2026-12-16","d":2},{"id":"B.5.2","n":"New Forehearth Panel Installation","by":"PAC","s":"2026-12-17","e":"2026-12-18","d":2},{"id":"B.5.3","n":"Forehearth I/O Wiring & Termination","by":"PAC","s":"2026-12-19","e":"2027-01-03","d":16},{"id":"B.6","n":"Forehearth Control System Setup & Integration","by":"PAC","s":"2027-01-03","e":"2027-01-25","d":23},{"id":"B.6.1","n":"ControlLogix Program Finalization – Forehearth","by":"PAC","s":"2027-01-05","e":"2027-01-09","d":5},{"id":"B.6.2","n":"New Control System Setup – Forehearth","by":"PAC","s":"2027-01-05","e":"2027-01-08","d":4},{"id":"B.6.3","n":"Drive System Setup – Forehearth","by":"PAC","s":"2027-01-11","e":"2027-01-13","d":3},{"id":"B.6.4","n":"Data Synchronization with Existing PLC-5 – Forehearth","by":"PAC","s":"2027-01-14","e":"2027-01-17","d":4},{"id":"B.6.5","n":"Citect Alarm & MCF21/22/24 Screen Integration","by":"PAC","s":"2027-01-18","e":"2027-01-21","d":4},{"id":"B.6.6","n":"Forehearth I/O Check & Loop Verification / Pre-Commissioning","by":"PAC + KCI","s":"2027-01-22","e":"2027-01-25","d":4},{"id":"C","n":"COMMISSIONING & MONITORING","by":"PAC + KCI","s":"2027-01-26","e":"2027-03-03","d":37},{"id":"C.1","n":"Commissioning – Forehearth","by":"PAC + KCI","s":"2027-01-26","e":"2027-02-07","d":13},{"id":"C.1.2","n":"Power Up","by":"PAC + KCI","s":"2027-01-26","e":"2027-01-26","d":1},{"id":"C.2.2","n":"I/O Check & Dry Run","by":"PAC + KCI","s":"2027-01-27","e":"2027-01-28","d":2},{"id":"C.1.3","n":"Sequence Check, HMI & Alarm Verification","by":"PAC + KCI","s":"2027-01-29","e":"2027-01-30","d":2},{"id":"C.2.4","n":"Start-Up / Heatup","by":"KCI","s":"2027-02-01","e":"2027-02-07","d":7},{"id":"C.3","n":"Post-Commissioning Fine Tuning","by":"PAC + KCI","s":"2027-02-08","e":"2027-02-27","d":20},{"id":"C.3.1","n":"Start-Up Support / Process Parameter Adjustment","by":"PAC + KCI","s":"2027-02-08","e":"2027-02-27","d":20},{"id":"C.3.2","n":"PID / Control Loop Fine Tuning – Forehearth","by":"PAC","s":"2027-02-08","e":"2027-02-27","d":20},{"id":"C.3.3","n":"MCF21/22/24 Optimization – Forehearth","by":"PAC","s":"2027-02-08","e":"2027-02-27","d":20},{"id":"C.3.4","n":"Alarm / Sequence Optimization – Forehearth","by":"PAC","s":"2027-02-08","e":"2027-02-27","d":20},{"id":"C.4","n":"Production Run & Monitoring","by":"PAC + KCI","s":"2027-02-08","e":"2027-02-28","d":21},{"id":"C.4.1","n":"Baby Sitting / Troubleshooting / Minor Adjustment","by":"PAC","s":"2027-02-08","e":"2027-02-28","d":21},{"id":"C.4.2","n":"Performance Verification","by":"PAC + KCI","s":"2027-02-22","e":"2027-02-28","d":7},{"id":"C.4.3","n":"Training & Documentation","by":"PAC + KCI","s":"2027-02-26","e":"2027-02-26","d":1},{"id":"C.5","n":"Project Hand-Over","by":"PAC","s":"2027-03-01","e":"2027-03-03","d":3},{"id":"C.5.1","n":"Documentation Update","by":"PAC","s":"2027-03-01","e":"2027-03-03","d":3},{"id":"C.5.2","n":"As-Built / Program Backup","by":"PAC","s":"2027-03-01","e":"2027-03-02","d":2},{"id":"C.5.3","n":"Final Punch List Closing","by":"PAC + KCI","s":"2027-03-01","e":"2027-03-03","d":3},{"id":"C.5.4","n":"FINAL HANDOVER / PROJECT COMPLETION","by":"PAC + KCI","s":"2027-03-03","e":"2027-03-03","d":1}];const MS=[{"no":1,"n":"Procurement & Material Readiness","s":"2026-06-01","e":"2026-09-18","d":110,"rm":"Material Procurement, Component Delivery & Inspection, Material Readiness Check"},{"no":2,"n":"Preparation Engineering & Program Development","s":"2026-06-02","e":"2026-10-15","d":136,"rm":"PLC/HMI development & verification, testing"},{"no":3,"n":"Panel Fabrication & Assembly","s":"2026-06-02","e":"2026-09-25","d":116,"rm":"Workshop fabrication"},{"no":4,"n":"Panel Shipment","s":"2026-09-28","e":"2026-09-28","d":1,"rm":"Panel shipment to site"},{"no":5,"n":"Site Preparation Start","s":"2026-10-03","e":"2026-12-07","d":66,"rm":"Data synchronization, Citect installation, cable marking & installation preparation"},{"no":6,"n":"Shutdown & Cooling Down","s":"2026-12-09","e":"2026-12-15","d":7,"rm":""},{"no":7,"n":"Preparation work","s":"2026-12-10","e":"2026-12-15","d":6,"rm":"New panel positioning in area, material check readiness"},{"no":8,"n":"Existing Panel Dismantling","s":"2026-12-16","e":"2026-12-17","d":2,"rm":"Dismantling existing panel"},{"no":9,"n":"New Panel Installation","s":"2026-12-17","e":"2026-12-18","d":2,"rm":"New panel installation activity, Lifting, install & positioning"},{"no":10,"n":"I/O wiring & termination","s":"2026-12-18","e":"2026-12-28","d":11,"rm":"I/O wiring & termination"},{"no":11,"n":"FOREHEARTH DJ2 UPGRADE","s":"2026-12-18","e":"2026-12-28","d":11,"rm":"ControlLogix Program Finalization, Control System Setup & Integration, New Control System Setup – Forehearth, Drive System Setup, Data Synchronization with Existing PLC, Citect Alarm & MCF21/22/24 Screen Integration, I/O Check & Loop Verification / Pre-Commissioning"},{"no":12,"n":"Commissioning","s":"2026-12-28","e":"2027-01-04","d":8,"rm":"Power Up, I/O Check, Sequence Check, Alarm Check, HMI Check, Dry Run"},{"no":13,"n":"Heatup","s":"2027-01-04","e":"2027-01-10","d":7,"rm":"Start after commissioning"},{"no":14,"n":"Target Production Start","s":"2027-01-10","e":"2027-01-10","d":1,"rm":"Start Production"},{"no":15,"n":"Fine Tunning","s":"2027-01-11","e":"2027-01-30","d":20,"rm":"Start-Up Support / Process Parameter Adjustment, PID / Control Loop Fine Tuning, Alarm / Sequence Optimization"},{"no":16,"n":"Production Run & Monitoring","s":"2027-01-11","e":"2027-01-30","d":20,"rm":"Baby Sitting ,Troubleshooting / Minor Adjustment, Perfomamce verification"},{"no":17,"n":"Training & Project Handover","s":"2027-01-25","e":"2027-01-29","d":5,"rm":"Training, documentation update, as built/backup program, final punch list closing, final hand over"}];
+const DAY=864e5,D=s=>Date.parse(s+'T00:00:00Z')/DAY,T0=D('2026-06-01'),T1=D('2027-03-03'),N=T1-T0+1;
+const F=s=>new Date(D(s)*DAY).toLocaleDateString('id-ID',{day:'2-digit',month:'short',year:'numeric',timeZone:'UTC'});
+const $=i=>document.getElementById(i),col=r=>r.id==='SD'?'var(--sd)':r.id[0]==='A'?'var(--a)':r.id[0]==='B'?'var(--b)':'var(--c)';
+const lvl=r=>r.id==='SD'?1:r.id.split('.').length-1;
+const ST={done:'Selesai',run:'Berjalan',late:'Terlambat',ns:'Belum mulai'};
+let LATE=new Set();try{LATE=new Set(JSON.parse(localStorage.getItem('fh_late')||'[]'))}catch(e){}
+const isL=r=>{for(const id of LATE)if(r.id===id||r.id.startsWith(id+'.'))return true;return false};
+let PICSEL='';const picHas=(r,p)=>r.by.split('+').some(s=>s.trim()===p);
+const st=(r,x)=>x<D(r.s)?'ns':isL(r)?'late':x>D(r.e)?'done':'run';
+const pc=(r,x)=>Math.max(0,Math.min(100,Math.round((x-D(r.s)+1)/r.d*100)));
+const phase=r=>r.id==='SD'?'B':r.id[0];
+const mons=[];for(let y=2026,m=5;;){const t=Date.UTC(y,m,1)/DAY;if(t>T1)break;mons.push([t,new Date(t*DAY).toLocaleDateString('id-ID',{month:'short',year:'2-digit',timeZone:'UTC'})]);m++;if(m>11){m=0;y++}}
+$('fp').innerHTML='<option value="">Semua fase</option><option value="A">A – Persiapan</option><option value="B">B – Upgrade</option><option value="C">C – Commissioning</option>';
+function draw(){
+ const x=D($('ref').value),q=$('q').value.toLowerCase(),fp=$('fp').value,fs=$('fs').value;
+ const cnt={done:0,run:0,late:0,ns:0};ROWS.forEach(r=>cnt[st(r,x)]++);
+ const tp=Math.max(0,Math.min(100,Math.round((x-T0+1)/N*100)));
+ $('kpi').innerHTML=[[ROWS.length,'Total jadwal (semua masuk)','var(--k0)','📋',100],[F('2026-06-01')+' → '+F('2027-03-03'),'Periode proyek ('+N+' hari)','var(--k1)','🗓️',100],[cnt.done,'Selesai','var(--k2)','✅',cnt.done/ROWS.length*100],[cnt.run,'Berjalan','var(--k3)','⚙️',cnt.run/ROWS.length*100],[cnt.late,'Terlambat','var(--k4)','🚨',cnt.late/ROWS.length*100],[cnt.ns,'Belum mulai','var(--k5)','⏳',cnt.ns/ROWS.length*100],[tp+'%','Waktu terlewati','var(--k6)','⏱️',tp],[Math.max(0,T1-x)+' hari','Menuju final handover','var(--k7)','🏁',100-tp]].map(([v,l,c,ic,b],i)=>`<div class="c kc ${i==4&&cnt.late?'al':''}" style="--kc:${c}"><span class="ki">${ic}</span><div class="kv" style="${i==1?'font-size:14px;padding:6px 0':''}">${v}</div><div class="kl">${l}</div><div class="kb"><i style="width:${b}%"></i></div></div>`).join('');
+ const PH=[['A','A · Project Preparation','11'],['B','B · Forehearth DJ2 Upgrade (incl. Shutdown)'],['C','C · Commissioning & Monitoring']];
+ $('ph').innerHTML=PH.map(([k,n])=>{const g=ROWS.filter(r=>phase(r)==k),h=g.find(r=>r.id===k),p=pc(h,x),c=g.reduce((a,r)=>(a[st(r,x)]++,a),{done:0,run:0,late:0,ns:0});
+  return `<div class="c" style="border-top:4px solid ${col(h)};background:linear-gradient(180deg,color-mix(in srgb,${col(h)} 14%,var(--card)),var(--card))"><b>${n}</b><div class="kl">${F(h.s)} – ${F(h.e)} · ${h.d} hari · PIC ${h.by}</div><div class="bar"><i style="width:${p}%;background:${col(h)}"></i></div><div class="kl" style="margin-top:6px">${p}% waktu · ${g.length} jadwal: ${c.done} selesai, ${c.run} berjalan, <b style="color:var(--sd)">${c.late} terlambat</b>, ${c.ns} belum</div></div>`}).join('');
+ const L=ROWS.filter(r=>(!PICSEL||picHas(r,PICSEL))&&(!fp||phase(r)==fp)&&(!fs||st(r,x)==fs)&&(!q||(r.id+' '+r.n+' '+r.by).toLowerCase().includes(q)));
+ $('cnt').textContent=`Menampilkan ${L.length} dari ${ROWS.length} jadwal`;
+ $('mh').innerHTML=mons.map(([t,l])=>`<div class="mh" style="left:${(t-T0)/N*100}%">${l}</div>`).join('');
+ $('gb').innerHTML=L.map(r=>{const w=r.d/N*100;return `<div class="gr L${lvl(r)} ${st(r,x)=='late'?'lt':''}" data-id="${r.id}" title="${r.id} ${r.n}\n${F(r.s)} – ${F(r.e)} (${r.d} hari) · ${r.by}"><div class="gl">${r.id==='SD'?'':r.id+' · '}${r.n}</div><div class="gt"><div class="gb s-${st(r,x)}${st(r,x)=='run'&&D(r.e)-x<=3?' due':''}" style="left:${(D(r.s)-T0)/N*100}%;width:${w}%;background:${col(r)};opacity:${lvl(r)==2?.8:1}"><i class="gf" style="width:${pc(r,x)}%"></i><span style="position:relative">${w>5?r.d+' h':''}</span></div></div></div>`}).join('')+
+  `<div class="ov">${mons.map(([t])=>`<div class="gm" style="left:${(t-T0)/N*100}%"></div>`).join('')}${x>=T0&&x<=T1?`<div class="today" style="left:${(x-T0+.5)/N*100}%"></div>`:''}</div>`;
+ $('tb').innerHTML=L.map(r=>{const s=st(r,x);return `<tr class="${s=='late'?'lt':''}"><td>${r.id==='SD'?'—':r.id}</td><td style="${lvl(r)<2?'font-weight:600':''}">${r.n}</td><td>${r.by}</td><td>${F(r.s)}</td><td>${F(r.e)}</td><td>${r.d}</td><td><span class="tg ${s}">${ST[s]}</span></td><td>${pc(r,x)}%</td><td><input type="checkbox" data-id="${r.id}" ${LATE.has(r.id)?'checked':''} title="Tandai terlambat"></td></tr>`}).join('');
+}
+$('mt').innerHTML=MS.map(m=>`<tr><td>${m.no}</td><td><b>${m.n}</b></td><td>${F(m.s)}</td><td>${F(m.e)}</td><td>${m.d}</td><td>${m.rm}</td></tr>`).join('');
+const CMP=[{"no":1,"n":"Procurement & Material Readiness","ms":"2026-06-01","me":"2026-09-18","md":110,"k":"A.1","ss":"2026-06-01","se":"2026-09-18","sd":110,"a":0,"b":0,"c":0,"p":0.0},{"no":2,"n":"Preparation Engineering & Program Development","ms":"2026-06-02","me":"2026-10-15","md":136,"k":"A.3","ss":"2026-06-02","se":"2026-10-15","sd":136,"a":0,"b":0,"c":0,"p":0.0},{"no":3,"n":"Panel Fabrication & Assembly","ms":"2026-06-02","me":"2026-09-25","md":116,"k":"A.2","ss":"2026-09-01","se":"2026-09-25","sd":25,"a":91,"b":0,"c":-91,"p":-78.4},{"no":4,"n":"Panel Shipment","ms":"2026-09-28","me":"2026-09-28","md":1,"k":"A.5.1","ss":"2026-09-28","se":"2026-09-28","sd":1,"a":0,"b":0,"c":0,"p":0.0},{"no":5,"n":"Site Preparation Start","ms":"2026-10-03","me":"2026-12-07","md":66,"k":"A.5.2","ss":"2026-10-03","se":"2026-12-07","sd":66,"a":0,"b":0,"c":0,"p":0.0},{"no":6,"n":"Shutdown & Cooling Down","ms":"2026-12-09","me":"2026-12-15","md":7,"k":"Shutdown","ss":"2026-12-08","se":"2026-12-14","sd":7,"a":-1,"b":-1,"c":0,"p":0.0},{"no":7,"n":"Preparation work","ms":"2026-12-10","me":"2026-12-15","md":6},{"no":8,"n":"Existing Panel Dismantling","ms":"2026-12-16","me":"2026-12-17","md":2,"k":"B.5.1","ss":"2026-12-15","se":"2026-12-16","sd":2,"a":-1,"b":-1,"c":0,"p":0.0},{"no":9,"n":"New Panel Installation","ms":"2026-12-17","me":"2026-12-18","md":2,"k":"B.5.2","ss":"2026-12-17","se":"2026-12-18","sd":2,"a":0,"b":0,"c":0,"p":0.0},{"no":10,"n":"I/O wiring & termination","ms":"2026-12-18","me":"2026-12-28","md":11,"k":"B.5.3","ss":"2026-12-19","se":"2027-01-03","sd":16,"a":1,"b":6,"c":5,"p":45.5},{"no":11,"n":"FOREHEARTH DJ2 UPGRADE","ms":"2026-12-18","me":"2026-12-28","md":11,"k":"B.6","ss":"2027-01-03","se":"2027-01-25","sd":23,"a":16,"b":28,"c":12,"p":109.1},{"no":12,"n":"Commissioning","ms":"2026-12-28","me":"2027-01-04","md":8,"k":"C.1","ss":"2027-01-26","se":"2027-02-07","sd":13,"a":29,"b":34,"c":5,"p":62.5},{"no":13,"n":"Heatup","ms":"2027-01-04","me":"2027-01-10","md":7,"k":"C.2.4","ss":"2027-02-01","se":"2027-02-07","sd":7,"a":28,"b":28,"c":0,"p":0.0},{"no":14,"n":"Target Production Start","ms":"2027-01-10","me":"2027-01-10","md":1,"k":"C.4","ss":"2027-02-08","se":"2027-02-08","sd":1,"a":29,"b":29,"c":0,"p":0.0},{"no":15,"n":"Fine Tunning","ms":"2027-01-11","me":"2027-01-30","md":20,"k":"C.3","ss":"2027-02-08","se":"2027-02-27","sd":20,"a":28,"b":28,"c":0,"p":0.0},{"no":16,"n":"Production Run & Monitoring","ms":"2027-01-11","me":"2027-01-30","md":20,"k":"C.4","ss":"2027-02-08","se":"2027-02-28","sd":21,"a":28,"b":29,"c":1,"p":5.0},{"no":17,"n":"Training & Project Handover","ms":"2027-01-25","me":"2027-01-29","md":5,"k":"C.5","ss":"2027-03-01","se":"2027-03-03","sd":3,"a":35,"b":33,"c":-2,"p":-40.0}];
+$('chk').innerHTML=[
+ '\u2705 <b>66 dari 66 baris jadwal</b> terbaca, semuanya punya tanggal Start/End. Durasi dihitung ulang (End \u2212 Start + 1): <b>0 selisih</b> dengan kolom Dur. di Excel.',
+ '\u2705 <b>Gantt di Excel</b> (rumus IF(AND(tgl\u2265Start, tgl\u2264End),"l","")) dicek per sel: <b>66 dari 66 baris</b> tanggal awal, akhir, dan jumlah harinya cocok dengan kolom Start/End.',
+ '\u2705 <b>Angka dashboard dihitung ulang</b> dari Excel pada 15 Okt 2026: 18 selesai / 7 berjalan / 41 belum mulai; waktu terlewati 137 dari 276 hari = 49,6%; sisa 139 hari ke 3 Mar 2027; rencana kumulatif 69,0% (52 task paling rinci, bobot 914 hari). Semua sama dengan yang tampil.',
+ '\u26a0 <b>Sheet Milestone vs Schedule:</b> dari 16 milestone yang bisa dipadankan, <b>5 sinkron penuh</b> dan <b>11 berbeda</b> (1 milestone, "Preparation work", tidak punya padanan). Rentang proyek Milestone 244 hari (1 Jun 2026\u201330 Jan 2027) vs Schedule 276 hari: Schedule <b>32 hari (13,1%) lebih panjang</b>. Final handover 29 Jan vs 3 Mar 2027 = <b>selisih 33 hari</b>. Rincian di tabel bawah.',
+ '\u26a0 <b>A.1.1 Material Procurement</b> berakhir 25 Sep 2026, melewati induknya A.1 dan A.1.3 Readiness Check (18 Sep) sebanyak <b>7 hari</b>: durasi 117 vs 110 hari = <b>+6,4%</b>.',
+ '\u26a0 <b>Header bulan Gantt di Excel</b>: sel Okt, Nov 2026 dan Jan, Feb, Mar 2027 tersimpan sebagai tanggal (tampil "26-Oct", "26-Nov", "27-Jan", "27-Feb", "27-Mar"; Jan\u2013Mar tersimpan sebagai tahun 2026), bukan teks bulan. Hanya label tampilan; tanggal harian di baris 9 benar.',
+ '\u26a0 Penomoran tidak berurutan: A.4.2 dan C.1.1 tidak ada; C.2.2 dan C.2.4 berada di bawah C.1; C.1.3 muncul setelah C.2.2. B.2\u2013B.4 (MCF21/22/24) bernomor level B, bukan di bawah B.1. Data tetap ditampilkan apa adanya.',
+ 'Catatan di file: tanggal commissioning masih menunggu konfirmasi KCI; jendela shutdown mengikuti tanggal milestone tetap.'].map(t=>`<li>${t}</li>`).join('');
+const cl=n=>n==0?'':'style="color:var(--sd);font-weight:700"',sg=n=>n>0?'+'+n:n;
+$('cmp').innerHTML='<thead><tr><th>No</th><th>Milestone</th><th>Milestone (mulai \u2013 selesai \u00b7 hari)</th><th>Padanan Schedule</th><th>Schedule (mulai \u2013 selesai \u00b7 hari)</th><th>\u0394 mulai</th><th>\u0394 selesai</th><th>\u0394 durasi</th><th>\u0394 durasi %</th><th>Status</th></tr></thead><tbody>'+CMP.map(x=>{if(!x.k)return `<tr><td>${x.no}</td><td>${x.n}</td><td>${F(x.ms)} \u2013 ${F(x.me)} \u00b7 ${x.md}</td><td colspan="6" style="color:var(--mu)">tidak ada padanan di sheet Schedule</td><td><span class="tg ns">Tanpa padanan</span></td></tr>`;const ok=!x.a&&!x.b&&!x.c;return `<tr class="${ok?'':'lt'}"><td>${x.no}</td><td>${x.n}</td><td>${F(x.ms)} \u2013 ${F(x.me)} \u00b7 ${x.md}</td><td>${x.k==='Shutdown'?'Shutdown':x.k}</td><td>${F(x.ss)} \u2013 ${F(x.se)} \u00b7 ${x.sd}</td><td ${cl(x.a)}>${sg(x.a)} h</td><td ${cl(x.b)}>${sg(x.b)} h</td><td ${cl(x.c)}>${sg(x.c)} h</td><td ${cl(x.c)}>${x.p>0?'+':''}${x.p.toFixed(1)}%</td><td><span class="tg ${ok?'done':'late'}">${ok?'Sinkron':'Berbeda'}</span></td></tr>`}).join('')+'</tbody>';
+
+const RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const LEAF=ROWS.filter(r=>!ROWS.some(o=>o.id.startsWith(r.id+'.'))),WT=LEAF.reduce((a,r)=>a+r.d,0);
+const cum=t=>LEAF.reduce((a,r)=>a+r.d*Math.max(0,Math.min(1,(t-D(r.s)+1)/r.d)),0)/WT*100;
+const SW=660,SH=230,SL=40,SB=18,VW=SL+SW+14,sx=d=>SL+d/(N-1)*SW,sy=v=>SB+SH-v/100*SH,SS=[];for(let i=0;i<N;i++)SS.push(cum(T0+i));
+const lp=(r,t,act)=>(act&&isL(r))?0:Math.max(0,Math.min(1,(t-D(r.s)+1)/r.d));
+const prog=(L,t,act)=>L.reduce((a,r)=>a+r.d*lp(r,t,act),0)/L.reduce((a,r)=>a+r.d,0)*100;
+let SA=[],XF=0,LV=0,hov=false;const recalc=()=>{SA=[];for(let i=0;i<N;i++)SA.push(prog(LEAF,T0+i,true));recalcP()};
+const at=(A,f)=>{const i=Math.max(0,Math.min(N-1,Math.floor(f))),j=Math.min(N-1,i+1);return A[i]+(A[j]-A[i])*(f-i)};
+const pthA=(A,f)=>{f=Math.max(0,Math.min(N-1,f));const k=Math.floor(f);let s='';for(let i=0;i<=k;i++)s+=(i?'L':'M')+sx(i).toFixed(1)+' '+sy(A[i]).toFixed(1);if(f>k)s+='L'+sx(f).toFixed(1)+' '+sy(at(A,f)).toFixed(1);return s};
+const gap=f=>{f=Math.max(0,Math.min(N-1,f));const k=Math.floor(f);let s=pthA(SS,f);if(f>k)s+='L'+sx(f).toFixed(1)+' '+sy(at(SA,f)).toFixed(1);for(let i=k;i>=0;i--)s+='L'+sx(i).toFixed(1)+' '+sy(SA[i]).toFixed(1);return s+'Z'};
+const isoI=i=>new Date((T0+i)*DAY).toISOString().slice(0,10),MI=[['Shipment','2026-09-28'],['Shutdown','2026-12-08'],['Handover','2027-03-03']].map(([n,d])=>[n,Math.round(D(d)-T0)]);
+const DK=['done','run','late','ns'],DCL={done:'#10b981',run:'#fbbf24',late:'#ef4444',ns:'rgba(148,163,184,.45)'},C2=2*Math.PI*105;let CN={done:0,run:0,late:0,ns:0};
+const saveL=()=>{try{localStorage.setItem('fh_late',JSON.stringify([...LATE]))}catch(e){}};
+function buildViz(){
+ const cl={A:'--a',B:'--b',C:'--c'};
+ let g=`<defs><linearGradient id="lg" x1="0" x2="1" y1="0" y2="0"><stop offset="0" style="stop-color:var(--p1)"/><stop offset=".5" style="stop-color:var(--p2)"/><stop offset="1" style="stop-color:var(--p3)"/></linearGradient><linearGradient id="ag" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--p2);stop-opacity:.45"/><stop offset="1" style="stop-color:var(--p2);stop-opacity:0"/></linearGradient><linearGradient id="mg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--p3)"/><stop offset="1" style="stop-color:var(--p1)"/></linearGradient><filter id="gl" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>`;
+ g+=['A','B','C'].map(k=>{const h=ROWS.find(r=>r.id==k),a=sx(D(h.s)-T0),b=sx(D(h.e)-T0);return `<rect x="${a}" y="${SB}" width="${b-a}" height="${SH}" fill="var(${cl[k]})" fill-opacity=".08"/><text x="${a+4}" y="${SB+10}" style="fill:var(${cl[k]});font-weight:700">Fase ${k}</text>`}).join('');
+ g+=[0,25,50,75,100].map(v=>`<line x1="${SL}" x2="${SL+SW}" y1="${sy(v)}" y2="${sy(v)}" stroke="var(--ln)"/><text x="${SL-6}" y="${sy(v)+3}" text-anchor="end">${v}%</text>`).join('');
+ mons.forEach(([t,lb],i)=>{const e=Math.min(i+1<mons.length?mons[i+1][0]:T1+1,T1+1),inc=cum(e-1)-cum(t-1),a=sx(t-T0),mw=(e-t)/N*SW,h=inc/100*SH;
+  g+=`<text x="${a+mw/2}" y="${SB+SH+14}" text-anchor="middle">${lb}</text><rect class="mb" data-s="${t}" data-e="${e}" x="${a+mw*.2}" y="${sy(0)-h}" width="${mw*.6}" height="${h}" rx="2" fill="url(#mg)" fill-opacity=".22" style="animation-delay:${i*90}ms"/><text x="${a+mw/2}" y="${sy(0)-h-3}" text-anchor="middle" style="font-size:8px">+${inc.toFixed(0)}%</text>`});
+ g+=`<path d="${pthA(SS,N-1)}" fill="none" stroke="var(--p2)" stroke-opacity=".45" stroke-width="2" stroke-dasharray="5 4" class="fut"/><path id="ea" class="ar" d="" fill="url(#ag)"/><path id="gp" d="" fill="#ef4444" fill-opacity=".28"/><path id="ep" d="" pathLength="1" class="sl" fill="none" stroke="url(#lg)" stroke-width="3.5" stroke-linecap="round" filter="url(#gl)"/><path id="ap" d="" fill="none" stroke="#ef4444" stroke-width="2.8" stroke-linecap="round" filter="url(#gl)"/>`;
+ MI.forEach(([n,i],k)=>{g+=`<circle id="m${k}" cx="${sx(i)}" cy="${sy(SS[i])}" r="4" fill="var(--card)" stroke="var(--sd)" stroke-width="2"/><text x="${sx(i)}" y="${sy(SS[i])+16}" text-anchor="${k==2?'end':'middle'}" style="fill:var(--sd)">${n} ${SS[i].toFixed(0)}%</text>`});
+ g+=`<g id="tg"><line id="tl" y1="${SB}" y2="${SB+SH}" stroke="var(--sd)" stroke-opacity=".6" stroke-dasharray="4 3"/><circle id="tp" class="pu" r="4" fill="var(--p1)"/><circle id="td" r="6" fill="#fff" stroke="var(--p1)" stroke-width="3" filter="url(#gl)"/><text id="tt" text-anchor="end" style="fill:var(--tx);font-weight:800;font-size:12px"></text><text id="ta" text-anchor="end" style="fill:#ef4444;font-weight:800;font-size:11px"></text></g><line id="cl" y1="${SB}" y2="${SB+SH}" stroke="var(--mu)" visibility="hidden"/><text id="ct" y="${SB+24}" visibility="hidden" style="fill:var(--tx);font-weight:700;font-size:10px"></text>`;
+ $('sc2').innerHTML=`<svg viewBox="0 0 ${VW} ${SB+SH+24}" style="width:100%;height:auto">${g}</svg>`;
+ const sv=$('sc2').firstChild;
+ sv.onmousemove=e=>{const r=sv.getBoundingClientRect(),i=Math.max(0,Math.min(N-1,Math.round(((e.clientX-r.left)/r.width*VW-SL)/SW*(N-1)))),c=$('cl'),t=$('ct');c.setAttribute('x1',sx(i));c.setAttribute('x2',sx(i));c.setAttribute('visibility','visible');t.setAttribute('visibility','visible');t.setAttribute('x',sx(i)+(i>N*.7?-6:6));t.setAttribute('text-anchor',i>N*.7?'end':'start');t.textContent=F(isoI(i))+' \u00b7 rencana '+SS[i].toFixed(1)+'%'+(LATE.size?' \u00b7 aktual '+SA[i].toFixed(1)+'%':'')};
+ sv.onmouseleave=()=>{$('cl').setAttribute('visibility','hidden');$('ct').setAttribute('visibility','hidden')};
+ const sd=$('sd');sd.max=N-1;sd.oninput=()=>{stopPlay();setRef(isoI(+sd.value))};
+}
+const R1=138,C1=2*Math.PI*R1,PR=[116,103,90],CPh=PR.map(r=>2*Math.PI*r),PNM=['Fase A \u00b7 Persiapan','Fase B \u00b7 Upgrade','Fase C \u00b7 Commissioning'],PGC=['var(--p1)','var(--b)','var(--c)'];
+let cv=0,ct=0,raf2=0;
+function tweenC(to){ct=to;if(!raf2)raf2=requestAnimationFrame(function s(){cv+=(ct-cv)*.09;if(Math.abs(ct-cv)<.05)cv=ct;if(!hov)$('c1').textContent=Math.round(cv)+'%';raf2=cv===ct?0:requestAnimationFrame(s)})}
+function sector(a0,a1,r0,r1){const p=(a,r)=>(170+r*Math.cos(a)).toFixed(1)+' '+(170+r*Math.sin(a)).toFixed(1);return `M${p(a0,r1)}A${r1} ${r1} 0 0 1 ${p(a1,r1)}L${p(a1,r0)}A${r0} ${r0} 0 0 0 ${p(a0,r0)}Z`}
+function buildDonut(){
+ let dots='',rad='',spk='';
+ ROWS.forEach((r,i)=>{const a=i/ROWS.length*2*Math.PI-Math.PI/2;dots+=`<circle class="dt" id="dt${i}" cx="${(170+68*Math.cos(a)).toFixed(1)}" cy="${(170+68*Math.sin(a)).toFixed(1)}" r="3.8" style="--d:${i*22}ms"><title>${r.id==='SD'?'Shutdown':r.id} \u00b7 ${r.n}</title></circle>`});
+ for(let k=0;k<8;k++){const e=-Math.PI/2-(7-k)*.105;rad+=`<path d="${sector(e-.105,e,60,153)}" fill="var(--p1)" fill-opacity="${(.03+k*.035).toFixed(3)}"/>`}
+ for(let i=0;i<12;i++){const a=i*2.399,rr=150+(i%3)*8;spk+=`<circle class="sp" cx="${(170+rr*Math.cos(a)).toFixed(1)}" cy="${(170+rr*Math.sin(a)).toFixed(1)}" r="1.6" fill="#fff" style="animation-delay:${(i*.37).toFixed(2)}s"/>`}
+ const sg=(id,a,b)=>`<linearGradient id="${id}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${a}"/><stop offset="1" stop-color="${b}"/></linearGradient>`;
+ const phr=PR.map((r,i)=>`<circle class="hk" id="pk${i}" cx="170" cy="170" r="${r}" fill="none" stroke="var(--ln)" stroke-width="9"/><circle class="pa" id="pa${i}" cx="170" cy="170" r="${r}" fill="none" stroke="url(#pg${i})" stroke-width="9" stroke-linecap="round" transform="rotate(-90 170 170)" style="stroke-dasharray:0 ${CPh[i]};transition-delay:${i*.18}s"/><g class="pt" id="pm${i}" style="transition-delay:${i*.18}s"><rect x="169" y="${170-r-6}" width="2" height="12" rx="1" fill="var(--tx)" opacity=".75"/></g><g class="pt" id="pt${i}" style="transition-delay:${i*.18}s"><circle cx="170" cy="${170-r}" r="5.5" fill="#fff" filter="url(#dg)"/></g>`).join('');
+ $('dn').innerHTML=`<div class="dw"><svg id="dsv" viewBox="0 0 340 340"><defs>${sg('sg_done','#6ee7b7','#059669')}${sg('sg_run','#fde68a','#d97706')}${sg('sg_late','#fda4af','#dc2626')}${sg('sg_ns','#94a3b8','#475569')}
+ <linearGradient id="pg0" x1="0" x2="1"><stop offset="0" style="stop-color:var(--p1)"/><stop offset="1" style="stop-color:var(--p2)"/></linearGradient><linearGradient id="pg1" x1="0" x2="1"><stop offset="0" style="stop-color:var(--b)"/><stop offset="1" style="stop-color:var(--p3)"/></linearGradient><linearGradient id="pg2" x1="0" x2="1"><stop offset="0" style="stop-color:var(--c)"/><stop offset="1" style="stop-color:var(--p2)"/></linearGradient>
+ <linearGradient id="cg" x1="0" x2="1"><stop offset="0" style="stop-color:var(--p1)"/><stop offset="1" style="stop-color:var(--p2)"/></linearGradient><linearGradient id="og" x1="0" x2="1" y1="0" y2="1"><stop offset="0" style="stop-color:var(--p1)"/><stop offset="1" style="stop-color:var(--p3)"/></linearGradient>
+ <radialGradient id="gw"><stop offset=".55" style="stop-color:var(--p1);stop-opacity:.28"/><stop offset="1" style="stop-color:var(--p1);stop-opacity:0"/></radialGradient><radialGradient id="gwr"><stop offset=".55" stop-color="#ef4444" stop-opacity=".45"/><stop offset="1" stop-color="#ef4444" stop-opacity="0"/></radialGradient>
+ <filter id="dg" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+ <circle class="gw" cx="170" cy="170" r="168" fill="url(#gw)"/><circle class="gw gr" cx="170" cy="170" r="168" fill="url(#gwr)"/>
+ <circle class="od" r="164" cx="170" cy="170" fill="none" stroke="url(#og)" stroke-width="5" stroke-dasharray="1.2 7.2" opacity=".6"/>
+ <circle class="cmt" r="158" cx="170" cy="170" fill="none" stroke="var(--p2)" stroke-width="3.2" stroke-linecap="round" stroke-dasharray="56 1000" filter="url(#dg)"/>
+ <g class="rdr">${rad}</g>${spk}
+ <g id="rg"><circle r="${R1}" cx="170" cy="170" fill="none" stroke="var(--ln)" stroke-width="16"/><g transform="rotate(-90 170 170)" filter="url(#dg)">${DK.map(k=>`<circle id="dc_${k}" class="dc" r="${R1}" cx="170" cy="170" fill="none" stroke="url(#sg_${k})" stroke-width="16" style="stroke-dasharray:0 ${C1}"/>`).join('')}</g>${dots}</g>
+ <g id="rg2">${phr}</g>
+ <g class="beat"><text id="c1" x="170" y="184" text-anchor="middle" style="fill:url(#cg);font-size:44px;font-weight:800">0%</text><text id="c2" x="170" y="205" text-anchor="middle" style="font-size:12px">Progres</text><text id="c3" x="170" y="221" text-anchor="middle" style="font-size:9.5px"></text></g></svg><div class="dtx" id="dtx"></div></div><div class="kl">Seret donut untuk memutar \u00b7 arahkan kursor ke cincin untuk detail \u00b7 cincin dalam = progres per fase (garis putih = rencana) \u00b7 titik = status tiap jadwal</div>`;
+ const sv=$('dsv');let ang=0,vel=0,drag=false,la=0;const apply=()=>$('rg').setAttribute('transform',`rotate(${ang} 170 170)`),pa=e=>{const r=sv.getBoundingClientRect();return Math.atan2(e.clientY-(r.top+r.height/2),e.clientX-(r.left+r.width/2))*180/Math.PI};
+ sv.onpointerdown=e=>{drag=true;la=pa(e);vel=0;sv.setPointerCapture(e.pointerId)};
+ sv.onpointermove=e=>{if(!drag)return;const a=pa(e);let d=a-la;if(d>180)d-=360;if(d<-180)d+=360;ang+=d;vel=d;la=a;apply()};
+ sv.onpointerup=sv.onpointercancel=()=>{drag=false};
+ (function spin(){if(!drag){if(Math.abs(vel)>.04){ang+=vel;vel*=.95}else ang+=.05;apply()}requestAnimationFrame(spin)})();
+ const show=(a,b,c)=>{hov=true;$('c1').textContent=a;$('c2').textContent=b;$('c3').textContent=c||''},hide=()=>{hov=false;$('c1').textContent=Math.round(cv)+'%';$('c2').textContent='Progres';$('c3').textContent=CT3};
+ DK.forEach(k=>{const c=$('dc_'+k);c.onmouseenter=()=>show(CN[k],ST[k],Math.round(CN[k]/ROWS.length*100)+'% dari jadwal');c.onmouseleave=hide});
+ PR.forEach((r,i)=>{const c=$('pk'+i);c.onmouseenter=()=>show(Math.round(PHV[i][0])+'%',PNM[i],'rencana '+Math.round(PHV[i][1])+'%');c.onmouseleave=hide});
+ setTimeout(()=>document.querySelectorAll('.pa,.pt').forEach(e=>e.style.transitionDelay='0s'),2600);
+}
+let CT3='',PHV=[[0,0],[0,0],[0,0]];
+const BG=[['Fase A \u00b7 Persiapan',r=>phase(r)=='A','var(--p1),var(--p2)'],['Fase B \u00b7 Upgrade',r=>phase(r)=='B','var(--b),var(--p3)'],['Fase C \u00b7 Commissioning',r=>phase(r)=='C','var(--c),var(--p2)'],['PIC \u00b7 PAC',r=>r.by=='PAC','var(--p2),var(--p3)'],['PIC \u00b7 PAC WS',r=>r.by=='PAC WS','var(--a),var(--p1)'],['PIC \u00b7 PAC + KCI',r=>r.by=='PAC + KCI','var(--p3),var(--b)'],['PIC \u00b7 KCI',r=>r.by=='KCI','var(--c),var(--a)']],BL=BG.map(g=>LEAF.filter(g[1]));
+function buildBars(){$('bc').style.cssText='position:relative;height:'+BG.length*38+'px';$('bc').innerHTML=BG.map((g,i)=>`<div class="br" id="br${i}" style="transform:translateY(${i*38}px)"><span class="bl">${g[0]}</span><div class="bt"><i class="bp"></i><div class="ba" style="background:linear-gradient(90deg,${g[2]})"></div></div><span class="bv"></span></div>`).join('')+'<div class="kl" style="position:absolute;bottom:-18px">Bar abu = rencana \u00b7 bar berwarna = aktual \u00b7 merah = tertinggal dari rencana</div>';$('bc').style.marginBottom='22px'}
+function updBars(x){const R=BL.map((L,i)=>[i,prog(L,x,true),prog(L,x,false)]);[...R].sort((a,b)=>b[1]-a[1]).forEach(([i,a,p],k)=>{const e=$('br'+i),lt=p-a>.5;e.style.transform=`translateY(${k*38}px)`;e.classList.toggle('lt',lt);e.querySelector('.bp').style.width=p+'%';e.querySelector('.ba').style.width=a+'%';e.querySelector('.bv').innerHTML=a.toFixed(0)+'%'+(lt?` <small>\u26a0 \u2212${(p-a).toFixed(0)}</small>`:'')})}
+function updDonut(xd,f,v,va){
+ const cn={done:0,run:0,late:0,ns:0},T=ROWS.length,t=T0+f;ROWS.forEach((r,i)=>{const s=st(r,xd);cn[s]++;const e=$('dt'+i),c='dt s-'+s;if(e.getAttribute('class')!==c)e.setAttribute('class',c)});
+ CN=cn;let off=0;DK.forEach(k=>{const len=cn[k]/T*C1,c=$('dc_'+k);c.style.strokeDasharray=len+' '+C1;c.style.strokeDashoffset=-off;off+=len});
+ PR.forEach((r,i)=>{const a=prog(BL[i],t,true),p=prog(BL[i],t,false);PHV[i]=[a,p];$('pa'+i).style.strokeDasharray=(a/100*CPh[i])+' '+CPh[i];$('pt'+i).style.transform=`rotate(${a*3.6}deg)`;$('pm'+i).style.transform=`rotate(${p*3.6}deg)`});
+ LV=va;tweenC(va);$('dsv').classList.toggle('al',cn.late>0);
+ const P=n=>Math.round(n/T*100),gp=v-va,dy=Math.max(1,Math.min(N,Math.floor(f)+1));
+ CT3=gp>.05?'tertinggal '+gp.toFixed(0)+' poin':'rencana '+v.toFixed(0)+'%';if(!hov)$('c3').textContent=CT3;
+ $('dtx').innerHTML=`<div><b style="color:#10b981">Selesai:</b> ${cn.done} dari ${T} jadwal (${P(cn.done)}%)</div><div><b style="color:#fbbf24">Berjalan:</b> ${cn.run} \u00b7 <b style="color:#ef4444">Terlambat:</b> ${cn.late} \u00b7 <b>Belum mulai:</b> ${cn.ns}</div><div>Rencana hari ini <b>${v.toFixed(0)}%</b> \u2014 ${gp>.05?`tertinggal <b style="color:#ef4444">${gp.toFixed(0)} poin</b>`:'sesuai rencana \u2705'}</div>${PR.map((r,i)=>`<div class="ph"><i style="background:${PGC[i]}"></i>${PNM[i]}<b>${PHV[i][0].toFixed(0)}%</b><small>/ ${PHV[i][1].toFixed(0)}%</small></div>`).join('')}<div class="kl">Hari ke-${dy} dari ${N} (${Math.round(dy/N*100)}%)</div>`;
+}
+function upd(x){
+ XF=x;const f=Math.max(0,Math.min(N-1,x-T0)),xd=Math.floor(x),v=at(SS,f),va=at(SA,f),inn=x>=T0&&x<=T1+1,late=LATE.size>0&&v-va>.05,X=sx(f),Y=sy(v);
+ $('ep').setAttribute('d',pthA(SS,f));$('ea').setAttribute('d',pthA(SS,f)+`L${X.toFixed(1)} ${sy(0)}L${sx(0)} ${sy(0)}Z`);
+ $('ap').setAttribute('d',late?pthA(SA,f):'');$('gp').setAttribute('d',late?gap(f):'');
+ $('tg').style.display=inn?'':'none';$('tl').setAttribute('x1',X);$('tl').setAttribute('x2',X);
+ ['tp','td'].forEach(i=>{$(i).setAttribute('cx',X);$(i).setAttribute('cy',Y)});
+ $('tt').setAttribute('x',X-10);$('tt').setAttribute('y',Y-9);$('tt').textContent=v.toFixed(0)+'%';
+ $('ta').setAttribute('x',X-10);$('ta').setAttribute('y',sy(va)+16);$('ta').textContent=late?'aktual '+va.toFixed(0)+'%':'';
+ MI.forEach(([n,i],k)=>$('m'+k).setAttribute('fill',f>=i?'var(--sd)':'var(--card)'));
+ document.querySelectorAll('.mb').forEach(b=>{const s=+b.dataset.s,e=+b.dataset.e;b.setAttribute('fill-opacity',e<=x+1?.65:(s<=x?.95:.22));b.classList.toggle('cur',s<=x&&x<e)});
+ $('sh').innerHTML=`Pada <b>${F(isoI(Math.floor(f)))}</b>: rencana <b>${v.toFixed(1)}%</b>${late?` \u00b7 aktual <b style="color:#ef4444">${va.toFixed(1)}%</b>`:''} \u00b7 sisa ${(100-va).toFixed(1)}%`;$('sd').value=Math.floor(f);
+ updDonut(xd,f,v,va);updBars(T0+f);updPic(x,f);
+}
+let raf=0,pl=false,prevLate=0,snd=true,AC,asig='';
+const setRef=s=>{$('ref').value=s;upd(D(s));draw()};
+function stopPlay(){pl=false;cancelAnimationFrame(raf);document.body.classList.remove('pl');$('pl').textContent='\u25b6 Putar timeline'}
+function play(){
+ if(pl){stopPlay();return}
+ pl=true;document.body.classList.add('pl');$('pl').textContent='\u23f8 Jeda';
+ const ep=$('ep');ep.style.animation='none';ep.style.strokeDashoffset=0;
+ let cur=Math.floor(XF-T0);if(cur>=N-1||cur<0)cur=0;
+ const sp=+$('spd').value,s0=performance.now(),dur=Math.max(800,(N-1-cur)/(N-1)*14000/sp);let last=0;
+ (function f(t){const p=Math.min(1,(t-s0)/dur),fi=cur+(N-1-cur)*p;$('ref').value=isoI(Math.floor(fi));upd(T0+fi);
+  if(t-last>110||p>=1){draw();last=t}
+  if(p<1&&pl)raf=requestAnimationFrame(f);else if(p>=1){stopPlay();$('pl').textContent='\u21bb Ulangi'}})(s0);
+}
+function toggleLate(id){LATE.has(id)?LATE.delete(id):LATE.add(id);saveL();recalc();draw();upd(XF)}
+function testAlarm(){const x=Math.floor(XF),c=LEAF.filter(r=>D(r.s)<=x&&x<=D(r.e)&&!LATE.has(r.id)).slice(0,3);c.forEach(r=>LATE.add(r.id));saveL();recalc();draw();upd(XF)}
+function beep(){try{AC=AC||new(window.AudioContext||window.webkitAudioContext)();[0,.28,.56].forEach((t,i)=>{const o=AC.createOscillator(),g=AC.createGain();o.type='square';o.frequency.value=i==1?620:880;g.gain.value=.05;o.connect(g);g.connect(AC.destination);o.start(AC.currentTime+t);o.stop(AC.currentTime+t+.2)})}catch(e){}}
+function alarm(){
+ const x=Math.floor(D($('ref').value)),L=ROWS.filter(r=>st(r,x)=='late'),a=$('alm');
+ document.body.classList.toggle('alarm',L.length>0);a.hidden=!L.length;
+ const sig=L.map(r=>r.id).join()+snd;
+ if(!L.length)asig='';else if(sig!==asig){asig=sig;a.innerHTML=`<span class="sir">\ud83d\udea8</span><div><b>ALARM KETERLAMBATAN</b> \u00b7 ${L.length} jadwal terlambat<div style="opacity:.92;font-size:12.5px">${L.slice(0,4).map(r=>(r.id==='SD'?'Shutdown':r.id)+' '+r.n+' ['+r.by+']').join(' \u00b7 ')}${L.length>4?' \u00b7 +'+(L.length-4)+' lainnya':''}</div></div><button id="sn">${snd?'\ud83d\udd14 Suara ON':'\ud83d\udd15 Suara OFF'}</button><button id="clr">Bersihkan</button>`;
+  $('sn').onclick=()=>{snd=!snd;asig='';alarm()};$('clr').onclick=()=>{LATE.clear();saveL();recalc();draw();upd(XF)}}
+ if(L.length>prevLate&&snd)beep();prevLate=L.length;
+}
+const PICO=['','PAC','PAC WS','KCI'],pk=p=>p||'ALL',PL=p=>p?LEAF.filter(r=>picHas(r,p)):LEAF;
+let PSa=[],PAa=[],PPATH='',ptipS='',lsig='',wsig='';
+const spx=i=>8+i/(N-1)*284,spy=v=>104-v/100*92;
+function spp(A,f){f=Math.max(0,Math.min(N-1,f));const k=Math.floor(f);let s='';for(let i=0;i<=k;i++)s+=(i?'L':'M')+spx(i).toFixed(1)+' '+spy(A[i]).toFixed(1);if(f>k)s+='L'+spx(f).toFixed(1)+' '+spy(at(A,f)).toFixed(1);return s}
+function recalcP(){const L=PL(PICSEL);PSa=[];PAa=[];for(let i=0;i<N;i++){PSa.push(prog(L,T0+i,false));PAa.push(prog(L,T0+i,true))}PPATH=spp(PSa,N-1)}
+const picSt=(L,x)=>{const late=L.filter(r=>x>=D(r.s)&&isL(r)),run=L.filter(r=>x>=D(r.s)&&x<=D(r.e)&&!isL(r)),due=run.filter(r=>D(r.e)-x<=3),soon=L.filter(r=>D(r.s)>x&&D(r.s)-x<=7);return{late,run,due,soon,s:late.length?'bad':due.length?'warn':'ok'}};
+const nm=r=>(r.id==='SD'?'Shutdown':r.id);
+function buildPic(){
+ $('pic').innerHTML=`<div class="chips">${PICO.map(p=>`<button class="chip ${p==PICSEL?'on':''}" data-p="${p}"><span class="dot" id="cd_${pk(p)}"></span><b>${p||'Semua PIC'}</b><small id="cp_${pk(p)}">0%</small></button>`).join('')}</div>
+ <div class="pg" id="pgr"><div><div class="pgh" id="ptl"></div>
+ <svg id="gsv" viewBox="0 0 220 146" style="width:100%;max-width:270px;display:block;margin:0 auto"><defs><linearGradient id="gg" x1="0" x2="1"><stop offset="0" style="stop-color:var(--p1)"/><stop offset="1" style="stop-color:var(--p2)"/></linearGradient></defs>
+ <path d="M20 110A90 90 0 0 1 200 110" pathLength="100" fill="none" stroke="var(--ln)" stroke-width="16" stroke-linecap="round"/>
+ <path id="gpl" d="M36 110A74 74 0 0 1 184 110" pathLength="100" fill="none" stroke="var(--mu)" stroke-opacity=".7" stroke-width="3" stroke-dasharray="0 100"/>
+ <path id="ga" d="M20 110A90 90 0 0 1 200 110" pathLength="100" fill="none" stroke="url(#gg)" stroke-width="16" stroke-linecap="round" stroke-dasharray="0 100"/>
+ <g id="ndl"><line x1="110" y1="110" x2="110" y2="42" stroke="var(--tx)" stroke-width="3" stroke-linecap="round"/><circle cx="110" cy="110" r="7" fill="var(--tx)"/></g>
+ <text x="14" y="128" style="font-size:9px">0%</text><text x="206" y="128" text-anchor="end" style="font-size:9px">100%</text>
+ <text id="gv" x="110" y="140" text-anchor="middle" style="fill:var(--tx);font-size:22px;font-weight:800">0%</text></svg>
+ <div style="text-align:center;margin-top:4px"><span id="pbd" class="pbd ok"></span></div><div class="kl" id="pst" style="text-align:center;margin-top:8px;line-height:1.7"></div></div>
+ <div><div class="pgh">Kurva progres PIC (rencana vs aktual)</div>
+ <svg id="spsv" viewBox="0 0 300 116" style="width:100%"><defs><linearGradient id="spa2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--p1);stop-opacity:.4"/><stop offset="1" style="stop-color:var(--p1);stop-opacity:0"/></linearGradient></defs>
+ ${[0,50,100].map(v=>`<line x1="8" x2="292" y1="${spy(v)}" y2="${spy(v)}" stroke="var(--ln)"/><text x="2" y="${spy(v)+3}" style="font-size:7px">${v}</text>`).join('')}
+ <path id="sp_p" d="" fill="none" stroke="var(--mu)" stroke-width="1.6" stroke-dasharray="4 3"/><path id="sp_g" d="" fill="#ef4444" fill-opacity=".3"/><path id="sp_r" d="" fill="url(#spa2)"/><path id="sp_a" d="" fill="none" stroke="var(--p1)" stroke-width="3" stroke-linecap="round"/>
+ <circle id="sp_d" r="5" fill="#fff" stroke="var(--p1)" stroke-width="3"/><text id="sp_t" text-anchor="end" style="fill:var(--tx);font-size:11px;font-weight:800"></text></svg>
+ <div class="kl" id="ppace" style="line-height:1.7"></div><div id="ptips"></div></div>
+ <div id="plist"></div></div>`;
+ $('pic').querySelectorAll('.chip').forEach(b=>b.onclick=()=>{PICSEL=b.dataset.p;$('pic').querySelectorAll('.chip').forEach(c=>c.classList.toggle('on',c===b));recalcP();ptipS='';lsig='';draw();upd(XF)});
+}
+function updPic(x,f){
+ const xd=Math.floor(x),t=T0+f;
+ PICO.forEach(p=>{const S=picSt(PL(p),xd);$('cd_'+pk(p)).className='dot '+S.s;$('cp_'+pk(p)).textContent=prog(PL(p),t,true).toFixed(0)+'%'});
+ const L=PL(PICSEL),S=picSt(L,xd),pa=at(PAa,f),pp=at(PSa,f),gp=pp-pa,left=Math.max(1,T1+1-t),need=(100-pa)/left,plan=(100-pp)/left;
+ $('pgr').className='pg p'+S.s;$('ptl').textContent='Monitor: '+(PICSEL||'Semua PIC')+' \u00b7 '+L.length+' task';
+ $('gpl').style.strokeDasharray=pp+' 100';$('ga').style.strokeDasharray=pa+' 100';$('ndl').style.transform=`rotate(${pa*1.8-90}deg)`;$('gv').textContent=pa.toFixed(0)+'%';
+ const b=$('pbd');b.className='pbd '+S.s;b.textContent=S.s=='ok'?'\u2705 ON SCHEDULE':S.s=='warn'?`\u26a0 PERHATIAN \u00b7 ${S.due.length} task jatuh tempo \u22643 hari`:`\ud83d\udea8 TERLAMBAT \u00b7 ${S.late.length} task`;
+ const cn={done:0,run:S.run.length,late:S.late.length,ns:0};L.forEach(r=>{if(!isL(r)){if(xd>D(r.e))cn.done++;else if(xd<D(r.s))cn.ns++}});
+ $('pst').innerHTML=`Aktual <b>${pa.toFixed(1)}%</b> \u00b7 Rencana <b>${pp.toFixed(1)}%</b> \u00b7 ${gp>.05?`<b style="color:#ef4444">tertinggal ${gp.toFixed(1)} poin</b>`:'<b style="color:#10b981">sesuai rencana</b>'}<br>Selesai ${cn.done} \u00b7 Berjalan ${cn.run} \u00b7 <b style="color:${cn.late?'#ef4444':'inherit'}">Terlambat ${cn.late}</b> \u00b7 Belum ${cn.ns}`;
+ $('ppace').innerHTML=`Kecepatan dibutuhkan hingga 3 Mar 2027: <b>${need.toFixed(2)}%/hari</b> (rencana ${plan.toFixed(2)}%/hari)${gp>.05&&plan>.001?` \u00b7 <b style="color:#ef4444">\u00d7${(need/plan).toFixed(1)} dari rencana</b>`:''}`;
+ if(ptipS!==S.s){ptipS=S.s;$('ptips').innerHTML=S.s=='bad'?`<div class="tip bad"><b>Agar kembali on schedule:</b><br>\u2022 Eskalasi ke PM &amp; KCI hari ini<br>\u2022 Tambah crew / lembur untuk task merah<br>\u2022 Paralelkan task yang tidak saling bergantung<br>\u2022 Update tanggal komitmen baru ke KCI</div>`:S.s=='warn'?`<div class="tip warn"><b>Perhatian:</b> pastikan task jatuh tempo selesai tepat waktu, siapkan sign-off dan dokumen pendukung.</div>`:`<div class="tip ok"><b>Aman:</b> pertahankan ritme kerja, tidak ada keterlambatan terdeteksi.</div>`}
+ $('sp_p').setAttribute('d',PPATH);const pa_=spp(PAa,f),k=Math.floor(f);$('sp_a').setAttribute('d',pa_);$('sp_r').setAttribute('d',pa_+`L${spx(f).toFixed(1)} ${spy(0)}L${spx(0)} ${spy(0)}Z`);
+ let g='';if(gp>.05){g=spp(PSa,f)+(f>k?'L'+spx(f).toFixed(1)+' '+spy(at(PAa,f)).toFixed(1):'');for(let i=k;i>=0;i--)g+='L'+spx(i).toFixed(1)+' '+spy(PAa[i]).toFixed(1);g+='Z'}
+ $('sp_g').setAttribute('d',g);$('spsv').setAttribute('class',S.s=='bad'?'bad':'');$('sp_d').setAttribute('cx',spx(f));$('sp_d').setAttribute('cy',spy(pa));$('sp_t').setAttribute('x',spx(f)-8);$('sp_t').setAttribute('y',spy(pa)-8);$('sp_t').textContent=pa.toFixed(0)+'%';
+ const sig=PICSEL+'|'+xd+'|'+[...LATE].join();
+ if(sig!==lsig){lsig=sig;const row=(r,c,tx,w)=>`<div class="tk ${c}"><div class="tn"><span>${nm(r)} \u00b7 ${r.n}</span><span>${tx}</span></div><div class="tb2"><i style="width:${w}%"></i></div></div>`,dl=r=>D(r.e)-xd;
+  $('plist').innerHTML=`<div class="pgh">\ud83d\udea8 Terlambat (${S.late.length})</div>${S.late.slice(0,5).map(r=>row(r,'r',xd>D(r.e)?'lewat '+(xd-D(r.e))+' hari':'berjalan',pc(r,xd))).join('')||'<div class="kl">Tidak ada \u2705</div>'}
+  <div class="pgh">\u25b6 Sedang berjalan (${S.run.length})</div>${S.run.sort((a,b)=>D(a.e)-D(b.e)).slice(0,5).map(r=>row(r,dl(r)<=3?'y':'',dl(r)==0?'hari ini':dl(r)+' hari lagi',pc(r,xd))).join('')||'<div class="kl">Tidak ada task berjalan</div>'}
+  <div class="pgh">\u23ed Segera mulai \u22647 hari (${S.soon.length})</div>${S.soon.slice(0,4).map(r=>row(r,'',D(r.s)-xd+' hari lagi',0)).join('')||'<div class="kl">Tidak ada</div>'}`}
+}
+function warn(){
+ const x=Math.floor(D($('ref').value)),S=picSt(PL(PICSEL),x),a=$('wrn');a.hidden=!S.due.length;
+ if(!S.due.length){wsig='';return}
+ const sig=PICSEL+S.due.map(r=>r.id).join()+x;
+ if(sig!==wsig){wsig=sig;a.innerHTML=`<span class="sir2">\u26a0</span><div><b>PERINGATAN DINI${PICSEL?' \u00b7 '+PICSEL:''}</b> \u00b7 ${S.due.length} task jatuh tempo \u22643 hari, pastikan selesai tepat waktu<div style="opacity:.92;font-size:12.5px">${S.due.slice(0,4).map(r=>`${nm(r)} ${r.n} [${r.by}] (${D(r.e)-x==0?'hari ini':D(r.e)-x+' hari'})`).join(' \u00b7 ')}${S.due.length>4?' \u00b7 +'+(S.due.length-4)+' lainnya':''}</div></div>`}
+}
+/* ===== TEMA ===== */
+const lum=h=>{const n=parseInt(h.slice(1),16);return((n>>16&255)*.299+(n>>8&255)*.587+(n&255)*.114)/255};
+function mk(d,bg,card,p1,p2,p3,a,b){return{d,bg,card,tx:d?'#e8ecf2':'#1b2330',mu:d?'#98a2b3':'#667085',bd:d?'rgba(255,255,255,.12)':'#e3e6ec',ln:d?'rgba(255,255,255,.07)':'#eceff4',a,b,c:d?'#34d399':'#059669',sd:d?'#f87171':'#dc2626',p1,p2,p3,k0:p1,k1:p2,k2:'#10b981',k3:'#f59e0b',k4:'#ef4444',k5:'#64748b',k6:b,k7:a}}
+const TH={'Midnight':mk(1,'#0f141b','#171e28','#6366f1','#06b6d4','#10b981','#60a5fa','#fbbf24'),'Terang':mk(0,'#f5f6f8','#ffffff','#4f46e5','#0891b2','#059669','#2563eb','#d97706'),'Neon Cyber':mk(1,'#070312','#130a26','#22d3ee','#e879f9','#facc15','#22d3ee','#f0abfc'),'Sunset':mk(1,'#1a0e0f','#291618','#fb923c','#f43f5e','#fbbf24','#fb923c','#fbbf24'),'Ocean':mk(1,'#06151f','#0b2230','#38bdf8','#2dd4bf','#818cf8','#38bdf8','#2dd4bf'),'Forest':mk(1,'#0c1a12','#14261b','#4ade80','#a3e635','#2dd4bf','#4ade80','#facc15'),'Royal':mk(1,'#120d24','#1c1536','#a78bfa','#f472b6','#60a5fa','#a78bfa','#f472b6'),'Mint':mk(0,'#ecfdf5','#ffffff','#10b981','#06b6d4','#8b5cf6','#059669','#d97706'),'Rose Gold':mk(0,'#fff1f2','#ffffff','#e11d48','#f97316','#a855f7','#e11d48','#f59e0b')};
+const TV=['bg','card','tx','mu','bd','ln','a','b','c','sd','p1','p2','p3','k0','k1','k2','k3','k4','k5','k6','k7'];
+let THN='auto',CUS=mk(1,'#0f141b','#171e28','#6366f1','#06b6d4','#10b981','#6366f1','#06b6d4');
+function applyTheme(n,save=true){const r=document.documentElement.style;TV.forEach(v=>r.removeProperty('--'+v));r.removeProperty('color-scheme');
+ const s=n=='Kustom'?CUS:TH[n];if(s){TV.forEach(v=>r.setProperty('--'+v,s[v]));r.setProperty('color-scheme',s.d?'dark':'light')}else n='auto';
+ THN=n;document.querySelectorAll('.sb').forEach(b=>b.classList.toggle('on',b.dataset.n==n));if(save)try{localStorage.setItem('fh_theme',JSON.stringify([n,CUS]))}catch(e){}}
+function buildTheme(){
+ try{const s=JSON.parse(localStorage.getItem('fh_theme')||'null');if(s){THN=s[0];if(s[1])CUS=s[1]}}catch(e){}
+ $('thp').innerHTML=`<div class="sw"><button class="sb" data-n="auto" style="background:linear-gradient(135deg,#334155,#94a3b8)">Otomatis</button>${Object.entries(TH).map(([n,t])=>`<button class="sb" data-n="${n}" style="background:linear-gradient(135deg,${t.bg} 0 25%,${t.p1} 25%,${t.p2},${t.p3})">${n}</button>`).join('')}<button class="sb" data-n="Kustom" style="background:linear-gradient(135deg,#f43f5e,#6366f1,#22d3ee)">\ud83c\udfa8 Kustom</button></div><div class="kl" style="margin:10px 0 4px">Warna kustom (langsung diterapkan)</div><div class="cr"><label>Aksen 1<input type="color" id="cp1" value="${CUS.p1}"></label><label>Aksen 2<input type="color" id="cp2" value="${CUS.p2}"></label><label>Latar<input type="color" id="cbg" value="${CUS.bg}"></label></div>`;
+ $('thp').onclick=e=>{const b=e.target.closest('.sb');if(b)applyTheme(b.dataset.n)};
+ $('thb').onclick=e=>{e.stopPropagation();$('thp').hidden=!$('thp').hidden};
+ document.addEventListener('click',e=>{if(!e.target.closest('#thp'))$('thp').hidden=true});
+ const cu=()=>{const bg=$('cbg').value,d=lum(bg)<.5,a=$('cp1').value,b=$('cp2').value;CUS=mk(d,bg,`color-mix(in srgb,${bg} 88%,${d?'#fff':'#000'})`,a,b,'#10b981',a,b);applyTheme('Kustom')};
+ ['cp1','cp2','cbg'].forEach(i=>$(i).oninput=cu);applyTheme(THN,false);
+}
+function countUp(){document.querySelectorAll('#kpi .kv').forEach((e,i)=>{if(i==1)return;const m=e.textContent.match(/^(\d+)(.*)$/);if(!m)return;const n=+m[1],sf=m[2],s=performance.now();(function f(t){const p=Math.min(1,(t-s)/1100);e.textContent=Math.round(n*(1-Math.pow(1-p,3)))+sf;if(p<1)requestAnimationFrame(f)})(s)})}
+['ref','q','fp','fs'].forEach(i=>$(i).addEventListener('input',()=>{draw();if(i=='ref'){stopPlay();upd(D($('ref').value))}}));
+if(!RM)document.body.classList.add('anim');recalc();const _dr=draw;draw=function(){_dr();alarm();warn()};
+buildViz();buildDonut();buildBars();buildPic();buildTheme();draw();const X0=D($('ref').value);upd(X0);setTimeout(()=>upd(X0),150);
+$('pl').onclick=play;$('rs').onclick=()=>{stopPlay();$('ep').style.animation='none';setRef('2026-10-15')};$('tst').onclick=testAlarm;$('spd').onchange=()=>{if(pl){stopPlay();play()}};
+$('gb').addEventListener('click',e=>{const g=e.target.closest('.gr');if(g&&e.target.closest('.gl'))toggleLate(g.dataset.id)});
+$('tb').addEventListener('change',e=>{if(e.target.dataset.id)toggleLate(e.target.dataset.id)});
+if(!RM){document.querySelectorAll('#gb .gr').forEach((e,i)=>e.style.setProperty('--i',i));countUp();setTimeout(()=>document.body.classList.remove('anim'),3500);
+ if(window.IntersectionObserver){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.05});document.querySelectorAll('.sec').forEach(e=>{e.classList.add('rv');io.observe(e)})}}
+</script></body></html>
